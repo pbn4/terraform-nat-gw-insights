@@ -2,6 +2,7 @@
 
 The purpose of this module is to discover what are the external hostnames that a NAT Gateway is communicating with (both ingress and egress) and how those hosts contribute to transfer charges. Solution configures flow logs for NAT Gateway ENI, Route53 public DNS query logs for the VPC that hosts the NAT Gateway, streams the logs to S3 natively or via Kinesis Firehose (for Route53 query logs) and provides Athena tables and saved queries to analyse the data. 
 
+
 ### Diagram
 
 ![Diagram](./static/diagram.png)
@@ -30,8 +31,9 @@ The purpose of this module is to discover what are the external hostnames that a
       region = var.aws_region
     }
 
-    module "nat_gateway_insights" {
-      source = "../../"
+    module "this" {
+      source  = "pbn4/nat-gw-insights/aws"
+
       nat_gateway_id = var.nat_gateway_id
     }
     ```
