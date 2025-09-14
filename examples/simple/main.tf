@@ -11,8 +11,9 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "nat_gateway_insights" {
-  source = "../../"
+module "this" {
+  source  = "pbn4/nat-gw-insights/aws"
+  version = "1.0.0"
 
   nat_gateway_id = var.nat_gateway_id
 }
