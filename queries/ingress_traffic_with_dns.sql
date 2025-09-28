@@ -46,7 +46,7 @@ flow_traffic AS (
         -- INGRESS: exclude private source IPs
         AND NOT (
             (srcaddr LIKE '10.%') OR 
-            (srcaddr LIKE '172.1%' AND CAST(SPLIT_PART(srcaddr, '.', 2) AS INT) BETWEEN 16 AND 31) OR 
+            (srcaddr LIKE '172.%' AND CAST(SPLIT_PART(srcaddr, '.', 2) AS INT) BETWEEN 16 AND 31) OR 
             (srcaddr LIKE '192.168.%')
         )
         AND NOT (srcaddr LIKE '169.254.%')

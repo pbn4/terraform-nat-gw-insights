@@ -27,7 +27,7 @@ WHERE
     -- EGRESS: exclude private destination IPs
     AND NOT (
         (dstaddr LIKE '10.%') OR 
-        (dstaddr LIKE '172.1%' AND CAST(SPLIT_PART(dstaddr, '.', 2) AS INT) BETWEEN 16 AND 31) OR 
+        (dstaddr LIKE '172.%' AND CAST(SPLIT_PART(dstaddr, '.', 2) AS INT) BETWEEN 16 AND 31) OR 
         (dstaddr LIKE '192.168.%')
     )
     AND NOT (dstaddr LIKE '169.254.%')
